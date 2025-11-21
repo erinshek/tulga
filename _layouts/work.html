@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<article class="work-page">
+    <header class="work-header">
+        <h1 class="work-title">{{ page.title }}</h1>
+        {% if page.author %}
+        {% assign author_page = site.authors | where: "name", page.author | first %}
+        <p class="work-author">
+            Muallif: {% if author_page %}<a href="{{ author_page.url | relative_url }}">{{ page.author }}</a>{% else %}{{ page.author }}{% endif %}
+        </p>
+        {% endif %}
+        {% if page.year %}
+        <p class="work-year">Dóretildi: {{ page.year }}</p>
+        {% endif %}
+        {% if page.genre %}
+        <p class="work-genre">Janr: {{ page.genre }}</p>
+        {% endif %}
+    </header>
+
+    <div class="work-content">
+        {{ content }}
+    </div>
+
+    <footer class="work-footer">
+        <a href="{{ site.baseurl }}/authors/" class="back-link">← Tulǵalar dizimine qaytıw</a>
+    </footer>
+</article>

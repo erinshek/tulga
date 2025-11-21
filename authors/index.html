@@ -1,0 +1,20 @@
+---
+layout: default
+title: Tulǵalar
+---
+
+<h1 style="text-align: center; margin-bottom: 3rem;">Tulǵalar</h1>
+
+<div class="authors-grid">
+    {% for author in site.authors %}
+    <a href="{{ author.url | relative_url }}" class="author-card">
+        <h3>{{ author.name }}</h3>
+        {% if author.birth or author.death %}
+        <p class="dates">{{ author.birth }}{% if author.death %} - {{ author.death }}{% endif %}</p>
+        {% endif %}
+        {% if author.excerpt %}
+        <p class="excerpt">{{ author.excerpt }}</p>
+        {% endif %}
+    </a>
+    {% endfor %}
+</div>

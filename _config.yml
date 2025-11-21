@@ -1,0 +1,36 @@
+title: Tulǵa
+description: Qaraqalpaq ádebiyatı haqqında
+baseurl: "/tulga"
+url: "https://dontbeidle.github.io"
+
+# Jekyll settings
+markdown: kramdown
+permalink: pretty
+
+# Collections
+collections:
+  authors:
+    output: true
+    permalink: /authors/:name/
+  works:
+    output: true
+    permalink: /works/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+  - scope:
+      path: ""
+      type: "works"
+    values:
+      layout: "work"
+
+# Exclude files
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

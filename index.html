@@ -1,0 +1,31 @@
+---
+layout: default
+title: Bas bet
+---
+
+<section class="hero">
+    <h2>Tulǵa</h2>
+    <p>Qaraqalpaq ádebiyatı haqqında</p>
+</section>
+
+<div class="search-box">
+    <input type="text" id="search-input" placeholder="Tulǵa yamasa dórtpeni izlew...">
+    <div id="search-results"></div>
+</div>
+
+<section class="authors-section">
+    <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">Tulǵalar</h2>
+    <div class="authors-grid">
+        {% for author in site.authors %}
+        <a href="{{ author.url | relative_url }}" class="author-card">
+            <h3>{{ author.name }}</h3>
+            {% if author.birth or author.death %}
+            <p class="dates">{{ author.birth }}{% if author.death %} - {{ author.death }}{% endif %}</p>
+            {% endif %}
+            {% if author.excerpt %}
+            <p class="excerpt">{{ author.excerpt }}</p>
+            {% endif %}
+        </a>
+        {% endfor %}
+    </div>
+</section>

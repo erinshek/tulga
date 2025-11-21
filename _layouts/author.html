@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<article class="author-page">
+    <header class="author-header">
+        {% if page.image %}
+        <div class="author-image">
+            <img src="{{ page.image | relative_url }}" alt="{{ page.name }}">
+        </div>
+        {% endif %}
+        <div class="author-info">
+            <h1 class="author-name">{{ page.name }}</h1>
+            {% if page.birth or page.death %}
+            <p class="author-dates">
+                {{ page.birth }}{% if page.death %} - {{ page.death }}{% endif %}
+            </p>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="author-content">
+        {{ content }}
+    </div>
+
+    {% assign author_works = site.works | where: "author", page.name %}
+    {% if author_works.size > 0 %}
+    <section class="author-works">
+        <h2>Miynetleri</h2>
+        <ul class="works-list">
+            {% for work in author_works %}
+            <li><a href="{{ work.url | relative_url }}">{{ work.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+</article>
